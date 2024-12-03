@@ -12,8 +12,26 @@ const Hero = () => {
           alt="Discover your next adventure"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-75"></div>
-        <div className="absolute bottom-5 left-5 text-white text-4xl md:text-5xl lg:text-6xl font-bold max-w-[80%] leading-tight sm:bottom-10 sm:left-5 sm:text-3xl">
-          Start Your Adventure<br /> Like Never Before
+        <div
+          className="absolute 
+    bottom-5 
+    left-5 
+    text-white 
+    text-2xl 
+    sm:text-3xl 
+    md:text-4xl 
+    lg:text-5xl 
+    xl:text-6xl 
+    font-bold 
+    max-w-[90%] 
+    leading-snug 
+    sm:leading-tight 
+    md:max-w-[80%] 
+    sm:bottom-10 
+    sm:left-8"
+        >
+          Start Your Adventure
+          <br /> Like Never Before
         </div>
       </div>
       <h1 className="font-extrabold text-[50px] text-center mt-10 px-5">
@@ -23,11 +41,13 @@ const Hero = () => {
         Personalize Itineraries at Your Fingertips
       </h1>
       <p className="text-xl text-gray-500 text-center px-5 max-w-4xl">
-        Your personal trip planner and travel curator, creating custom itineraries
-        tailored to your interests and budget.
+        Your personal trip planner and travel curator, creating custom
+        itineraries tailored to your interests and budget.
       </p>
       <Link to={"/create-trip"}>
-        <Button className="px-6 py-3 text-lg mb-[100px]">Get Started, It's Free</Button>
+        <Button className="px-6 py-3 text-lg mb-[100px]">
+          Get Started, It's Free
+        </Button>
       </Link>
     </div>
   );

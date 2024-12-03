@@ -74,7 +74,7 @@ const Header = () => {
               <PopoverTrigger>
                 <img
                   src={user?.picture ||'/450.jpg'}
-                  className="h-[35px] w-[35px] rounded-full"
+                  className="h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] md:h-[60px] md:w-[60px] rounded-full object-cover"
                   alt="User"
                 />
               </PopoverTrigger>
