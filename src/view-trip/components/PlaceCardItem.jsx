@@ -41,6 +41,7 @@ const PlaceCardItem = ({ place, location }) => {
         <h2 className='font-bold text-lg'>{place.placeName}</h2>
         <p className='text-sm'>{place.placeDetails}</p>
         <h2 className='mt-2'>⏲️ {place?.timeToTravel || 'Anytime'}</h2>
+        <h2 className='mt-2'>Fees : {place?.ticketPricing || 'Free'}</h2>
         <Link to={'https://www.google.com/maps/search/?api=1&query=' + location + ',' + place.placeName} target='_blank'>
           <button className='text-4xl'><MdLocationOn /></button>
         </Link>

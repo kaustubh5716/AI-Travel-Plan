@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Discover your next adventure"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-75"></div>
-        <div className="absolute bottom-5 left-5 text-white text-4xl font-bold max-w-[80%] leading-tight">
+        <div className="absolute bottom-5 left-5 text-white text-4xl md:text-5xl lg:text-6xl font-bold max-w-[80%] leading-tight sm:bottom-10 sm:left-5 sm:text-3xl">
           Start Your Adventure<br /> Like Never Before
         </div>
       </div>

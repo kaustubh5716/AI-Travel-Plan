@@ -45,7 +45,7 @@ const HotelCardItem = ({hotel}) => {
             <div className='my-2 flex flex-col'>
               <h2 className='font-medium'>🏨 {hotel?.HotelName}</h2>
               <h2 className='text-xs text-gray-600 font-medium'>📍 {hotel?.HotelAddress}</h2>
-              <h2 className='text-sm font-medium'>💰 {hotel?.price}</h2>
+              <h2 className='text-sm font-medium'> {hotel?.price === '$$$' ? '💰 Price unavailable. Click to view details' : `💰 ${hotel?.price}`}</h2>
               <h2 className='text-sm font-medium'>⭐ {hotel?.rating}</h2>
             </div>
           </div>

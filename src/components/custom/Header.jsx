@@ -10,12 +10,11 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader } from "@/compon
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Header = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
-
   useEffect(() => {
     console.log(user);
   }, [user]);
@@ -46,7 +45,7 @@ const Header = () => {
     googleLogout();
     localStorage.clear();
     window.location.reload();
-    <a href="http://localhost:5173/"></a>
+    <a href="/"></a>
   };
 
   return (
@@ -74,7 +73,7 @@ const Header = () => {
             <Popover>
               <PopoverTrigger>
                 <img
-                  src={user?.picture}
+                  src={user?.picture ||'/450.jpg'}
                   className="h-[35px] w-[35px] rounded-full"
                   alt="User"
                 />
