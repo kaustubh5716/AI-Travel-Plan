@@ -6,7 +6,12 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { googleLogout } from "@react-oauth/google";
-import { Dialog, DialogContent, DialogDescription, DialogHeader } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+} from "@/components/ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
@@ -16,7 +21,7 @@ const Header = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    console.log(user);
+    console.log("Parsed User:", user);
   }, [user]);
 
   const login = useGoogleLogin({
@@ -36,7 +41,6 @@ const Header = () => {
         localStorage.setItem("user", JSON.stringify(resp.data));
         setOpenDialog(false);
         window.location.reload();
-
       })
       .catch((err) => console.error("Error fetching user profile:", err));
   };
@@ -44,38 +48,35 @@ const Header = () => {
   const handleLogout = () => {
     googleLogout();
     localStorage.clear();
-    window.location.reload();
-    <a href="/"></a>
+    // nav("/");
+    window.location.href = "/";
   };
 
   return (
-    <div className="p-2 shadow-sm flex justify-between items-center px-5">
+    <div className="p-2 shadow-sm flex justify-between items-center px-4 sm:px-5">
       <a href="/">
-      <img src="/logo.svg" style={{ height: "50px" }} alt="Logo" />
+        <img src="/logo.svg" style={{ height: "50px" }} alt="Logo" />
       </a>
       <div>
         {user ? (
           <div className="flex items-center gap-3">
-             <a href="/create-trip">
-           <button
-              className="border-2 border-gray-600 text-gray-600 rounded-full py-2 px-4 hover:bg-orange-600 hover:text-black"
-            >
-              Create trip
-            </button>
+            <a href="/create-trip">
+              <button className="border-2 border-gray-600 text-gray-600 rounded-full py-1 px-3 text-sm sm:py-2 sm:px-4 sm:text-base hover:bg-orange-600 hover:text-black">
+                Create trip
+              </button>
             </a>
             <a href="/my-trips">
-           <button
-              className="border-2 border-gray-600 text-gray-600 rounded-full py-2 px-4 hover:bg-orange-600 hover:text-black"
-            >
-              My trip
-            </button>
+              <button className="border-2 border-gray-600 text-gray-600 rounded-full py-1 px-3 text-sm sm:py-2 sm:px-4 sm:text-base hover:bg-orange-600 hover:text-black">
+                My trip
+              </button>
             </a>
             <Popover>
               <PopoverTrigger>
                 <img
-                  src={user?.picture ||'/450.jpg'}
-                  className="h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] md:h-[60px] md:w-[60px] rounded-full object-cover"
-                  alt="User"
+                  src={user.picture}
+                  className="h-[30px] w-[30px] sm:h-[45px] sm:w-[45px] md:h-[60px] md:w-[60px] rounded-full object-cover"
+                  alt="User Profile"
+                  onError={(e) => (e.target.src = "/default-profile.png")}
                 />
               </PopoverTrigger>
               <PopoverContent>
@@ -97,9 +98,17 @@ const Header = () => {
               <DialogContent>
                 <DialogHeader>
                   <DialogDescription>
-                    <img src="/logo.svg" style={{ height: "50px" }} alt="Logo" />
-                    <h2 className="font-bold text-lg mt-7">Sign In With Google</h2>
-                    <p>Sign in to the App with Google authentication securely</p>
+                    <img
+                      src="/logo.svg"
+                      style={{ height: "50px" }}
+                      alt="Logo"
+                    />
+                    <h2 className="font-bold text-lg mt-7">
+                      Sign In With Google
+                    </h2>
+                    <p>
+                      Sign in to the App with Google authentication securely
+                    </p>
                     <Button
                       className="w-full mt-5 flex gap-4 items-center"
                       onClick={login}
